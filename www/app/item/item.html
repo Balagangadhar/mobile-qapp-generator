@@ -1,0 +1,43 @@
+<div on-swipe-left="openNextItem()" on-swipe-right="openPreviousItem()">
+	<ion-header-bar class="bar-@PRIMARYCOLOR@">
+	<button class="button icon-left button-clear ion-ios-arrow-left" ng-click="openPreviousItem()">Prev</button>
+	<div class="h1 title" ng-click="gotoHome()">Home <span class="badge badge-@BADGECOLOR@">{{getLearningStatusMsg()}}</span></div>
+	<button class="button icon-right button-clear ion-ios-arrow-right" ng-click="openNextItem()">Next</button>
+</ion-header-bar>
+<br/>
+<ion-content>
+<div class="item item-icon-left item-icon-right">
+	<i class="icon ion-help-circled"></i>
+	<h2 class="wrap-text">{{item.id}}. {{item.question}} </h2>
+	<i class={{getLearningStatusIcon()}}></i>
+</div>
+
+
+<div class="list card">
+	<!-- <div class="item item-divider"> </div> -->
+	<div class="item item-body ">
+		<p>
+			Tag : <a href="#" class="subdued">{{item.tags | capitalize}}</a><br/>
+			Difficulty Level :  <a class="subdued">{{item.level |capitalize}}</a><br/>
+			Applicable Versions : <a class="subdued">{{item.versions | capitalize}}</a><br/>
+		</p>
+		<!-- <i class='icon ion-ios-lightbulb-outline'></i> -->
+		<p ng-bind-html= "item.answer"></p>
+	</div>
+</div>		
+<br/>
+</ion-content>
+
+<div class="bar bar-footer">
+	<div class="item tabs tabs-secondary tabs-icon-left">
+		<ion-checkbox class="icon checkbox-@PRIMARYCOLOR@" ng-checked="getLearningStatus()" ng-click='toggleLearningStatus($event)'>
+		<a class="tab-item">Learned</a>
+	</ion-checkbox>
+
+	<a class="tab-item" ng-click='shareSocially()'>
+		<i class="icon ion-share"></i>
+		Share
+	</a>
+</div>
+</div>
+</div>
