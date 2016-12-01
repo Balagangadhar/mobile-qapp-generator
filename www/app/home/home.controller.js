@@ -102,14 +102,13 @@ angular.module('myapp').controller('HomeCtrl', function($rootScope,$scope,ItemSe
 	}
 	$scope.synchronizeDataWithServer = function(){
 		alert('Synchronizing the data with server...')
-		$http.get('https://raw.githubusercontent.com/Balagangadhar/mobileapps-javaqapp/master/www/data/content.json')
+		$http.get('https://raw.githubusercontent.com/Balagangadhar/qappdata/master/@DATAFILENAME@')
 		.success(function(data, status, headers, config) {
 			DbService.loadData('ITEM',data);
 			alert('Synchronizing completed successfully.')
 			$rootScope.$broadcast("onHomeViewInitialize");       
 		})
 		.error(function(data, status, headers, config) {
-			alert(status)
 			alert('Please check your connection and try again...')
 		})
 	}

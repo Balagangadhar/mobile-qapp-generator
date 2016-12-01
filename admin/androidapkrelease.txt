@@ -1,0 +1,123 @@
+npm install -g cordova ionic gulp gulp-cli
+set %JAVA_HOME%=C:\Program Files\Java\jdk1.8.0_111, %ANDROID_HOME%=C:\Users\bala\AppData\Local\Android\sdk, 
+
+--------------------------	
+Creating App
+--------------------------	
+ionic start IonicProject blank
+cd IonicProject
+ionic platform add android
+ionic platform add ios
+cordova plugin add cordova-plugin-device
+cordova plugin add cordova-plugin-console
+cordova plugin add https://github.com/brodysoft/Cordova-SQLitePlugin.git
+--------------------------	
+Publishing App
+--------------------------
+cordova plugin rm org.apache.cordova.console
+cordova build --release android
+%JAVA_HOME%\keytool -genkey -v -keystore NAME-mobileapps.keystore -alias NAMEmobileapps -keyalg RSA -keysize 2048 -validity 10000
+"%JAVA_HOME%/bin/jarsigner" -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore abcsmobileapps.keystore android-release-unsigned.apk abcsmobileapps
+%ANDROID_HOME%\build-tools\24.0.3\zipalign -v 4 android-release-unsigned.apk JavaQApp.apk
+ 
+--------------------------
+Configuration
+--------------------------
+gulp configure-app
+ 
+ 
+ 
+ 
+ 
+ 
+
+C:\Users\bala\AppData\Local\Android\sdk\build-tools\24.0.3\zipalign
+
+Draft
+-----
+- cordova create balasapp com.bala.balasapp Balasapp
+- cordova platforms add android
+- cordova plugin add cordova-plugin-device
+- cordova plugin add cordova-plugin-console
+- cordova plugin add cordova-plugin-console
+- cordova build --release android
+- keytool -genkey -v -keystore NAME-mobileapps.keystore -alias NAMEmobileapps -keyalg RSA -keysize 2048 -validity 10000
+- jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore NAME-mobileapps.keystore Example-release-unsigned.apk xxxxxmobileapps
+- zipalign -v 4 android-release-unsigned.apk balafirstapp.apk
+-------------------------
+
+
+
+https://ccoenraets.github.io/cordova-tutorial/create-cordova-project.html
+
+cordova plugin add cordova-plugin-device
+cordova plugin add cordova-plugin-console
+
+
+Step1 : 
+D:\projects\Phonegap\Example> cordova plugin rm org.apache.cordova.console
+
+Step2 : 
+<application android:debuggable="true" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_name">
+
+<application android:icon="@drawable/icon" android:label="@string/app_name">
+
+Step3 : 
+D:\projects\Phonegap\Example> cordova build --release android
+
+Step4 : 
+keytool -genkey -v -keystore <keystoreName>.keystore -alias <Keystore AliasName> -keyalg <Key algorithm> -keysize <Key size> -validity <Key Validity in Days>
+
+keytool -genkey -v -keystore NAME-mobileapps.keystore -alias NAMEmobileapps -keyalg RSA -keysize 2048 -validity 10000
+
+Step5 : 
+D:\projects\Phonegap\Example\platforms\android\ant-build> jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore NAME-mobileapps.keystore Example-release-unsigned.apk xxxxxmobileapps
+
+Step6 
+D:\projects\Phonegap\Example\platforms\android\ant-build> C:\Phonegap\adt-bundle-windows-x86_64-20140624\sdk\build-tools\android-4.4W\zipalign -v 4 Example-release-unsigned.apk Example.apk
+
+D:\Bala\software\android\android-sdk-windows\build-tools\22.0.1
+
+keytool -genkey -v -keystore balacordova.keystore -alias balacordova -keyalg RSA -keysize 2048 -validity 10000
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore balacardova <Unsigned APK file> balacardova
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore balacordova.keystore Example-release-unsigned.apk xxxxxmobileapps
+
+zipalign -v 4 android-release-unsigned.apk balafirstapp.apk 
+
+
+
+
+
+
+
+
+
+
+To build the project in the workshop/platforms/android folder and run it on an Android device connected to your computer using a USB cable, type:
+
+cordova run android
+To build the project in the workshop/platforms/android folder and run it in the Android emulator, type:
+
+cordova emulate android
+
+ ionic resources
+cordova build --release android -- --keystore=./admin/abcsmobileapps.keystore --storePassword=Public@123 --
+alias=abcsmobileapps --password=Public@123 
+
+
+ionic run android -l -c
+ ionic resources	
+ 
+ 
+ 
+ light	To be used for white color	 
+stable	To be used for light grey color	 
+positive	To be used for blue color	 
+calm	To be used for light blue color	 
+balanced	To be used for green color	 
+energized	To be used for yellow color	 
+assertive	To be used for red color	 
+royal	To be used for violet color	 
+dark	To be used for black color

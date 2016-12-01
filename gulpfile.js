@@ -58,6 +58,7 @@ var replace = require('gulp-replace');
 	.pipe(replace('@PRIMARYCOLOR@',appContants.PRIMARYCOLOR))
 	.pipe(replace('@BADGECOLOR@',appContants.BADGECOLOR))
 	.pipe(replace('@PACKAGE@',appContants.PACKAGE))
+	.pipe(replace('@DATAFILENAME@',appContants.DATAFILENAME))
 	
 	.pipe(gulp.dest("."));
 });

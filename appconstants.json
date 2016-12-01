@@ -3,5 +3,6 @@
 "TECHNOLOGY":"Java",
 "PRIMARYCOLOR":"positive",
 "BADGECOLOR":"balanced",
-"PACKAGE":"com.sansoft.javaqapp"
+"PACKAGE":"com.sannsoft.javaqapp",
+"DATAFILENAME":"java.json"
 }
