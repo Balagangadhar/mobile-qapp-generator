@@ -110,6 +110,9 @@ alias=abcsmobileapps --password=Public@123
 ionic run android -l -c
  ionic resources	
  
+  cordova plugin add cordova-plugin-x-socialsharing
+$ cordova prepare
+ 
  
  
  light	To be used for white color	 

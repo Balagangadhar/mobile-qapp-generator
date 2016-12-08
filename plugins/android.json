@@ -1,0 +1,40 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.sannsoft.javaqapp"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.sannsoft.javaqapp"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.sannsoft.javaqapp"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.sannsoft.javaqapp"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.sannsoft.javaqapp"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.sannsoft.javaqapp"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.sannsoft.javaqapp"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.sannsoft.javaqapp"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.sannsoft.javaqapp"
+        }
+    }
+}

@@ -1,4 +1,4 @@
-	angular.module('myapp').controller('ItemCtrl', function($rootScope,$scope,ItemService,UtilityService,$stateParams,$location,$cordovaSocialSharing, $filter) {
+	angular.module('myapp').controller('ItemCtrl', function($rootScope,$scope,ItemService,UtilityService,$stateParams,$location,$cordovaSocialSharing, $filter,$ionicPlatform, $ionicHistory) {
 		
 		ItemService.getItemById($stateParams.itemId).then(function(item){
 			$scope.item = item;
@@ -88,6 +88,27 @@
 		// $scope.orightml = '<h2>Try me!</h2><p>textAngular is a super cool WYSIWYG Text Editor directive for AngularJS</p><p><b>Features:</b></p><ol><li>Automatic Seamless Two-Way-Binding</li><li>Super Easy <b>Theming</b> Options</li><li style="color: green;">Simple Editor Instance Creation</li><li>Safely Parses Html for Custom Toolbar Icons</li><li class="text-danger">Doesn&apos;t Use an iFrame</li><li>Works with Firefox, Chrome, and IE8+</li></ol><p><b>Code at GitHub:</b> <a href="https://github.com/fraywing/textAngular">Here</a> </p>';
 		// $scope.htmlcontent = $scope.orightml;
 		$scope.disabled = false;
+		
+		$ionicPlatform.registerBackButtonAction(function(e){
+    if ($rootScope.backButtonPressedOnceToExit) {
+      ionic.Platform.exitApp();
+    }
+
+    else if ($ionicHistory.backView()) {
+      $ionicHistory.goBack();
+    }
+    else {
+      $rootScope.backButtonPressedOnceToExit = true;
+      window.plugins.toast.showShortCenter(
+        "Press back button again to exit",function(a){},function(b){}
+      );
+      setTimeout(function(){
+        $rootScope.backButtonPressedOnceToExit = false;
+      },2000);
+    }
+    e.preventDefault();
+    return false;
+  },101);
 		
 
 			});

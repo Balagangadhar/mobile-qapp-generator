@@ -6,7 +6,7 @@ run(function($ionicPlatform,DbService,ItemService) {
   // DbService.init();
       DbService.init();
   if(window.cordova && window.configordova.plugins&& window.configordova.plugins.Keyboard) {
-    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    window.cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
   }
   if(window.StatusBar) {
     StatusBar.styleDefault();

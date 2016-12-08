@@ -1,4 +1,4 @@
-angular.module('myapp').controller('HomeCtrl', function($rootScope,$scope,ItemService,$location,DbService,$http,$ionicLoading,$ionicModal,GLOBAL,$location) {
+angular.module('myapp').controller('HomeCtrl', function($rootScope,$scope,ItemService,$location,DbService,$http,$ionicLoading,$ionicModal,GLOBAL,$location,$ionicPlatform, $ionicHistory) {
 	var init = function(){
 		console.log('initialized');
 	}
@@ -183,4 +183,25 @@ angular.module('myapp').controller('HomeCtrl', function($rootScope,$scope,ItemSe
 			$scope.initializeItem();
 		}
 	});
+	
+	$ionicPlatform.registerBackButtonAction(function(e){
+    if ($rootScope.backButtonPressedOnceToExit) {
+      ionic.Platform.exitApp();
+    }
+
+    else if ($ionicHistory.backView()) {
+      $ionicHistory.goBack();
+    }
+    else {
+      $rootScope.backButtonPressedOnceToExit = true;
+      window.plugins.toast.showShortCenter(
+        "Press back button again to exit",function(a){},function(b){}
+      );
+      setTimeout(function(){
+        $rootScope.backButtonPressedOnceToExit = false;
+      },2000);
+    }
+    e.preventDefault();
+    return false;
+  },101);
 });
